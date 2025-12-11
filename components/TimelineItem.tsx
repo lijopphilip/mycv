@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Milestone } from '../types';
 import { BriefcaseIcon, GraduationCapIcon, LightbulbIcon, UserIcon } from './IconComponents';
@@ -18,7 +17,14 @@ const iconMap = {
 export const TimelineItem: React.FC<TimelineItemProps> = ({ milestone }) => {
   return (
     <div className="mb-12 ml-10 relative">
-      <span className="absolute flex items-center justify-center w-8 h-8 bg-neutral-950 border border-neutral-700 rounded-full -left-[59px] text-white z-10">
+      {/* 
+         Alignment Logic: 
+         Parent has ml-10 (40px) relative to Timeline border.
+         We want icon centered on Timeline border (0px).
+         Icon width is w-8 (32px). Center is 16px.
+         So we need to move left by 40px + 16px = 56px.
+      */}
+      <span className="absolute flex items-center justify-center w-8 h-8 bg-neutral-950 border border-neutral-700 rounded-full -left-[56px] text-white z-10">
         <div className="scale-75">
           {iconMap[milestone.icon]}
         </div>
